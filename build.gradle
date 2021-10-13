@@ -8,16 +8,20 @@ group 'org.example'
 version '1.0-SNAPSHOT'
 
 jacoco {
-    toolVersion = "0.8.5"
+    toolVersion = "0.8.7"
+    reportsDir = file("build/jacoco")
 }
 
 jacocoTestReport {
+    dependsOn test
     reports {
-        html.enabled true
-        xml.enabled true
+        html.required true
+        xml.required true
         xml.destination file("build/reports/jacoco.xml")
     }
 }
+
+
 repositories {
     mavenCentral()
 }
@@ -29,6 +33,7 @@ dependencies {
 
 test {
     useJUnitPlatform()
+    finalizedBy jacocoTestReport
 }
 
 sonarqube {
@@ -38,5 +43,6 @@ sonarqube {
         property "sonar.host.url", "https://sonarcloud.io"
         property "sonar.coverage.jacoco.xmlReportPaths", "build/jacoco/jacoco.xml"
         property "sonar.junit.reportsPath", "build/test-results/*/TEST-*.xml"
+        property "sonar.java.coveragePlugin", "jacoco"
     }
 }
