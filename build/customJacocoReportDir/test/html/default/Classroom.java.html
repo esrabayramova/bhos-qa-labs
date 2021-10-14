@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Classroom.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Classroom</a> &gt; <a href="index.source.html" class="el_package">default</a> &gt; <span class="el_source">Classroom.java</span></div><h1>Classroom.java</h1><pre class="source lang-java linenums">import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import javax.crypto.Cipher;
+import javax.crypto.NoSuchPaddingException;
+
+public class Classroom{
+    private static String course_name;
+    int height_of_room;
+    int length_of_room;
+    int width_of_room;
+    int num_of_students;
+    //String course_name;
+
+<span class="nc" id="L14">    public Classroom(int h, int l, int w, int num, String c){</span>
+<span class="nc" id="L15">        this.height_of_room = h;</span>
+<span class="nc" id="L16">        this.length_of_room = l;</span>
+<span class="nc" id="L17">        this.width_of_room = w;</span>
+<span class="nc" id="L18">        this.num_of_students = num;</span>
+<span class="nc" id="L19">        this.course_name = c;</span>
+<span class="nc" id="L20">    }</span>
+
+    public int getHeight_of_room(){
+<span class="nc" id="L23">        return height_of_room;</span>
+    }
+
+    public int getWidth_of_room(){
+<span class="nc" id="L27">        return width_of_room;</span>
+    }
+
+    public int getLength_of_room(){
+<span class="nc" id="L31">        return length_of_room;</span>
+    }
+
+    public int getNum_of_students(){
+<span class="nc" id="L35">        return num_of_students;</span>
+    }
+
+    public String getCourse_name(){
+<span class="nc" id="L39">        return course_name;</span>
+    }
+
+    public static String getClass_name(String coursename){
+<span class="fc" id="L43">        return &quot;Class of &quot; + coursename;</span>
+    }
+
+    public static int area_of_room(int l, int w){
+<span class="fc" id="L47">        int a = l*w;</span>
+<span class="fc" id="L48">        return a;</span>
+    }
+
+    public static int volume_of_room(int h, int l, int w){
+<span class="fc" id="L52">        int v = h*l*w;</span>
+<span class="fc" id="L53">        return v;</span>
+    }
+
+    public static double student_per_m_square(int l, int w, int num){
+<span class="fc" id="L57">        double x = num / (l*w);</span>
+<span class="fc" id="L58">        return x;</span>
+    }
+
+    public static double diagonal_of_room(int w, int l, int h){
+<span class="fc" id="L62">        double d = java.lang.Math.sqrt(java.lang.Math.pow(l, 2)+java.lang.Math.pow(w, 2)+java.lang.Math.pow(h, 2));</span>
+<span class="fc" id="L63">        return d;</span>
+    }
+
+    public static MessageDigest hash_it() throws NoSuchAlgorithmException {
+<span class="nc" id="L67">        java.security.MessageDigest md1 = java.security.MessageDigest.getInstance(&quot;SHA&quot;);</span>
+<span class="nc" id="L68">        return md1;</span>
+    }
+
+    public static Cipher getCipher() throws NoSuchPaddingException, NoSuchAlgorithmException {
+<span class="nc" id="L72">        Cipher c1 = Cipher.getInstance(&quot;AES&quot;);</span>
+<span class="nc" id="L73">        return c1;</span>
+    }
+
+
+
+    public static void main(String[] args) throws NoSuchMethodException, NoSuchAlgorithmException, NoSuchPaddingException {
+<span class="nc" id="L79">        Classroom classroom = new Classroom(21, 12, 16, 192, &quot;Psychology&quot;);</span>
+<span class="nc" id="L80">        System.out.println(&quot;Area of the room: &quot; + area_of_room(classroom.getLength_of_room(), classroom.getWidth_of_room()));</span>
+<span class="nc" id="L81">        System.out.println(&quot;Volume of the room: &quot; + volume_of_room(classroom.getHeight_of_room(), classroom.getLength_of_room(), classroom.getWidth_of_room()));</span>
+<span class="nc" id="L82">        System.out.println(&quot;Number of students per meter square: &quot; + student_per_m_square(classroom.getLength_of_room(), classroom.getWidth_of_room(), classroom.getNum_of_students()));</span>
+<span class="nc" id="L83">        System.out.println(&quot;Diagonal of the room: &quot; + diagonal_of_room(classroom.getWidth_of_room(), classroom.getLength_of_room(), classroom.getHeight_of_room()));</span>
+<span class="nc" id="L84">        System.out.println(&quot;Course name: &quot; + getClass_name(classroom.getCourse_name()));</span>
+<span class="nc" id="L85">        System.out.println(hash_it());</span>
+<span class="nc" id="L86">        System.out.println(getCipher());</span>
+
+<span class="nc" id="L88">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
