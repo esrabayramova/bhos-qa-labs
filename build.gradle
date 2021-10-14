@@ -9,14 +9,15 @@ version '1.0-SNAPSHOT'
 
 jacoco {
     toolVersion = "0.8.7"
+    reportsDirectory = layout.buildDirectory.dir('customJacocoReportDir')
 }
 
 jacocoTestReport {
-    dependsOn test
+    //dependsOn test
     reports {
-//        html.required true
+        //html.required true
         xml.enabled true
-        xml.destination file("build/reports/jacoco.xml")
+        //xml.destination file("build/reports/jacoco.xml")
     }
 }
 
@@ -32,12 +33,9 @@ dependencies {
 
 test {
     useJUnitPlatform()
-    finalizedBy jacocoTestReport
 }
 
-tasks.named('sonarqube').configure {
-    dependsOn test
-}
+test.finalizedBy jacocoTestReport
 
 sonarqube {
     properties {

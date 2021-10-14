@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="TestCuboid" tests="2" skipped="0" failures="0" errors="0" timestamp="2021-10-13T06:16:30" hostname="LAPTOP-GV0F12EF" time="0.05">
+<testsuite name="TestCuboid" tests="2" skipped="0" failures="0" errors="0" timestamp="2021-10-14T17:04:42" hostname="LAPTOP-GV0F12EF" time="0.05">
   <properties/>
-  <testcase name="test_surface_area()" classname="TestCuboid" time="0.049"/>
+  <testcase name="test_surface_area()" classname="TestCuboid" time="0.048"/>
   <testcase name="test_volume()" classname="TestCuboid" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
