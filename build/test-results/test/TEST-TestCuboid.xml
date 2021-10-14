@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="TestCuboid" tests="5" skipped="0" failures="0" errors="0" timestamp="2021-10-14T18:52:23" hostname="LAPTOP-GV0F12EF" time="0.064">
+  <properties/>
+  <testcase name="test_surface_area()" classname="TestCuboid" time="0.053"/>
+  <testcase name="test_height()" classname="TestCuboid" time="0.002"/>
+  <testcase name="test_length()" classname="TestCuboid" time="0.001"/>
+  <testcase name="test_volume()" classname="TestCuboid" time="0.001"/>
+  <testcase name="test_width()" classname="TestCuboid" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
