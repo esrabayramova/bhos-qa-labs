@@ -1,5 +1,7 @@
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import javax.crypto.Cipher;
+import javax.crypto.NoSuchPaddingException;
 
 public class Classroom{
     private static String course_name;
@@ -66,7 +68,14 @@ public class Classroom{
         return md1;
     }
 
-    public static void main(String[] args) throws NoSuchMethodException, NoSuchAlgorithmException {
+    public static Cipher getCipher() throws NoSuchPaddingException, NoSuchAlgorithmException {
+        Cipher c1 = Cipher.getInstance("AES");
+        return c1;
+    }
+
+
+
+    public static void main(String[] args) throws NoSuchMethodException, NoSuchAlgorithmException, NoSuchPaddingException {
         Classroom classroom = new Classroom(21, 12, 16, 192, "Psychology");
         System.out.println("Area of the room: " + area_of_room(classroom.getLength_of_room(), classroom.getWidth_of_room()));
         System.out.println("Volume of the room: " + volume_of_room(classroom.getHeight_of_room(), classroom.getLength_of_room(), classroom.getWidth_of_room()));
@@ -74,6 +83,7 @@ public class Classroom{
         System.out.println("Diagonal of the room: " + diagonal_of_room(classroom.getWidth_of_room(), classroom.getLength_of_room(), classroom.getHeight_of_room()));
         System.out.println("Course name: " + getClass_name(classroom.getCourse_name()));
         System.out.println(hash_it());
+        System.out.println(getCipher());
 
     }
 

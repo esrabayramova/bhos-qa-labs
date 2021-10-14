@@ -19,5 +19,22 @@ public class ClassroomTest {
     void  test_student_per_m_squared() { assertEquals(1, Classroom.student_per_m_square(12, 16, 192));}
 
     @Test
-    void test_course_name() { assertEquals("Class of Psychology", Classroom.getClass_name("Psychology"));}
+    void test_class_name() { assertEquals("Class of Psychology", Classroom.getClass_name("Psychology"));}
+
+//    Classroom new_class = new Classroom(21, 12, 16, 192, "Science");
+//
+//    @Test
+//    void test_height() { assertEquals(21, new_class.getHeight_of_room());}
+//
+//    @Test
+//    void test_length() { assertEquals(12, new_class.getLength_of_room());}
+//
+//    @Test
+//    void test_width() { assertEquals(16, new_class.getWidth_of_room());}
+//
+//    @Test
+//    void test_student_num() { assertEquals(192, new_class.getNum_of_students());}
+//
+//    @Test
+//    void test_course_name() { assertEquals("Science", new_class.getCourse_name());}
 }
