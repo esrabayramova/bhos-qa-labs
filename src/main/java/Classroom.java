@@ -1,4 +1,5 @@
-import java.lang.Math;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 public class Classroom{
     private static String course_name;
@@ -60,22 +61,20 @@ public class Classroom{
         return d;
     }
 
-    public void makeItPublic(String methodName) throws NoSuchMethodException {
-
-        this.getClass().getMethod(methodName).setAccessible(true); // Noncompliant
+    public static MessageDigest hash_it() throws NoSuchAlgorithmException {
+        java.security.MessageDigest md1 = java.security.MessageDigest.getInstance("SHA");
+        return md1;
     }
 
-    public void setItAnyway(String fieldName, int value) throws NoSuchFieldException, IllegalAccessException {
-        this.getClass().getDeclaredField(fieldName).setInt(this, value); // Noncompliant; bypasses controls in setter
-    }
-
-    public static void main(String[] args){
+    public static void main(String[] args) throws NoSuchMethodException, NoSuchAlgorithmException {
         Classroom classroom = new Classroom(21, 12, 16, 192, "Psychology");
         System.out.println("Area of the room: " + area_of_room(classroom.getLength_of_room(), classroom.getWidth_of_room()));
         System.out.println("Volume of the room: " + volume_of_room(classroom.getHeight_of_room(), classroom.getLength_of_room(), classroom.getWidth_of_room()));
         System.out.println("Number of students per meter square: " + student_per_m_square(classroom.getLength_of_room(), classroom.getWidth_of_room(), classroom.getNum_of_students()));
         System.out.println("Diagonal of the room: " + diagonal_of_room(classroom.getWidth_of_room(), classroom.getLength_of_room(), classroom.getHeight_of_room()));
         System.out.println("Course name: " + getClass_name(classroom.getCourse_name()));
+        System.out.println(hash_it());
+
     }
 
 }
