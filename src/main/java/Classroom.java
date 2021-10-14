@@ -60,6 +60,15 @@ public class Classroom{
         return d;
     }
 
+    public void makeItPublic(String methodName) throws NoSuchMethodException {
+
+        this.getClass().getMethod(methodName).setAccessible(true); // Noncompliant
+    }
+
+    public void setItAnyway(String fieldName, int value) throws NoSuchFieldException, IllegalAccessException {
+        this.getClass().getDeclaredField(fieldName).setInt(this, value); // Noncompliant; bypasses controls in setter
+    }
+
     public static void main(String[] args){
         Classroom classroom = new Classroom(21, 12, 16, 192, "Psychology");
         System.out.println("Area of the room: " + area_of_room(classroom.getLength_of_room(), classroom.getWidth_of_room()));
