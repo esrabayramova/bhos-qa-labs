@@ -1,1 +1,0 @@
-# bhos-qa-labs
