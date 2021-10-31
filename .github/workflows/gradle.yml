@@ -24,6 +24,15 @@ jobs:
         cache: gradle
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
+
+    - name: Decrypting secret
+      env:
+          FIREBASE_SECRET: ${{ secrets.FIREBASE_SECRET }}
+      run:
+          gpg --batch --yes --always-trust --decrypt --passphrase="$FIREBASE_SECRET" --output ./services.tar services.tar.gpg
+    - name: Unarchiving secret
+      run:
+              tar xvf services.tar
     - name: Build with Gradle
       run: ./gradlew build
     - name: Test with Gradle
