@@ -16,7 +16,9 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	implementation 'com.google.firebase:firebase-admin:8.1.0'
+	//implementation 'com.google.firebase:firebase-admin:8.1.0'
+	implementation 'org.json:json:20171018'
+	implementation group: 'com.google.firebase', name: 'firebase-admin', version: '8.1.0'
 	implementation 'com.google.gms:google-services:3.0.0'
 }
 
