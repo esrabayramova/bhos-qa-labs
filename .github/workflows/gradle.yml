@@ -37,6 +37,6 @@ jobs:
     - name: Test with Gradle
       env:
         FIREBASE_API_KEY: ${{ secrets.FIREBASE_API_KEY }}
-        FIREBASE_EMAIL: ${{ secrets.FIREBASE_EMAIL }}
-        FIREBASE_PASSWORD: ${{ secrets.FIREBASE_PASSWORD }}
+        FIREBASE_AUTH_EMAIL: ${{ secrets.FIREBASE_AUTH_EMAIL }}
+        FIREBASE_AUTH_PASSWORD: ${{ secrets.FIREBASE_AUTH_PASSWORD }}
       run: ./gradlew test --tests "*"
