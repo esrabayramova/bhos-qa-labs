@@ -57,8 +57,8 @@ public class FirebaseTest {
 
     public String authenticate() throws IOException, InterruptedException, JSONException {
         JSONObject data = new JSONObject();
-        data.put("email", System.getenv("FIREBASE_EMAIL"));
-        data.put("password", System.getenv("FIREBASE_PASSWORD"));
+        data.put("email", System.getenv("FIREBASE_AUTH_EMAIL"));
+        data.put("password", System.getenv("FIREBASE_AUTH_PASSWORD"));
         data.put("returnSecureToken", "true");
         return HTTPUtil.post(ApiUrlConstants.FIREBASE_SIGNIN_EMAIL_AND_PASSWORD.concat(System.getenv("FIREBASE_API_KEY")), data);
     }
